@@ -1,10 +1,10 @@
 const customers=[
     {id:1, firstName:'John',lastName:'Doe',email:'john@gmail',products:[]},
     {id:2, firstName:'Sam',lastName:'Doe',email:'sam@gmail',products:[]},
-    {id:1, firstName:'Ann',lastName:'Smith',email:'ann@gmail',products:[]}
+    {id:3, firstName:'Ann',lastName:'Smith',email:'ann@gmail',products:[]}
 ]
 
-
+let nextId = 4
 export default class CustomerService{
    
   list(){
@@ -13,7 +13,11 @@ export default class CustomerService{
    delete(customer){
     customers.splice(customers.indexOf(customer),1)
    }
-
+   addCustomer(customer){
+       customer.id =nextId
+       customers.push(customer)
+       nextId++
+   }
 }
 
 export const customerService=new CustomerService()
