@@ -1,7 +1,11 @@
 <template>
   <div class="container">
       <h2>Products</h2>
+     
+<form class="text-center">
+<input v-model="searchTerm" type="text" placeholder="Search products"/>
 
+</form>
 <table class="table table-hover">
 <thead class="thead-light">
     <tr>
@@ -13,7 +17,7 @@
     </tr>
 </thead>
 <tbody>
-    <tr v-for="product in products"
+    <tr v-for="product in filterProducts"
                 :key=product.id>
         <td>{{ product.id }}</td>
         <td>{{ product.title }}</td>
@@ -26,14 +30,23 @@
   </div>
 </template>
 <script>
- import { productService } from '../services/ProductService'
+ import { productService } from "../services/ProductService"
 export default {
   data(){
    return{
       products:productService.list(),
-
+      searchTerm:""
      
    }
+   },
+    
+ computed:{
+   filterProducts(){
+       return this.products.filter(product =>{
+           return product.title.toLowerCase().includes(this.searchTerm.toLowerCase())
+       })
    }
+
+ }
 }
 </script>
