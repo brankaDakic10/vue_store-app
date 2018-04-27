@@ -43,7 +43,7 @@ export default {
  computed:{
    filterProducts(){
        return this.products.filter(product =>{
-           return product.title.toLowerCase().includes(this.searchTerm.toLowerCase())
+           return product.title.toLowerCase().startsWith(this.searchTerm.toLowerCase())
        })
    }
 
