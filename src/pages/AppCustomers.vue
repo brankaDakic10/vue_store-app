@@ -1,24 +1,11 @@
 <template>
 <div class="container mt-4">
 <h1>Customers</h1>
-<form @submit.prevent='addCustomer'>
-    <div class="form-group">
-    <label for="firstName">First Name</label>
-    <input type="text" v-model='newCustomer.firstName' class="form-control" id="firstName"  placeholder="Enter first name">
-   
-  </div>
-    <div class="form-group">
-    <label for="lastName">Last Name</label>
-    <input type="text" v-model='newCustomer.lastName' class="form-control" id="lastName" placeholder="Enter last name">
-   
-  </div>
- <div class="form-group">
-    <label for="exampleFormControlInput1">Email address</label>
-    <input type="email" v-model='newCustomer.email' class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-  </div>
- 
-  
-  <button type="submit" class="btn btn-primary">Submit</button>
+<form @submit.prevent="addCustomer" class="text-center">
+<input v-model="newCustomer.firstName" type="text" placeholder="First name"/>
+<input v-model="newCustomer.lastName" type="text" placeholder="Last name"/>
+<input v-model="newCustomer.email" type="email" placeholder="Email"/>
+<button class="btn btn-primary">Add new customer</button>
 </form>
 <br>
 <table class="table table-hover">
