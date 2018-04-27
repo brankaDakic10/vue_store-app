@@ -16,6 +16,7 @@
     <th>Last name</th>
     <th>Email</th>
     <th>&nbsp;</th>
+    <th>&nbsp;</th>
     </tr>
 </thead>
 <tbody>
@@ -26,6 +27,7 @@
         <td>{{ customer.lastName }}</td>
         <td>{{ customer.email }}</td>
         <td><button @click.prevent='removeCustomer(customer)' class="btn btn-danger">Remove</button></td>
+    <td><router-link class="btn btn-link" :to="'/customers/'+ customer.id">Latest Purchases</router-link></td>
     </tr>
 </tbody>
 </table>

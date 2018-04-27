@@ -18,6 +18,10 @@ export default class CustomerService{
        customers.push(customer)
        nextId++
    }
+
+   get(id){
+         return customers.find(customer => customer.id == id)
+   }
 }
 
 export const customerService=new CustomerService()
